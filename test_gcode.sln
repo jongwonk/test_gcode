@@ -16,5 +16,11 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = test_gcode\test_gcode.cproj
+		Policies = $0
+		$0.VersionControlPolicy = $1
+		$1.CommitMessageStyle = $2
+		$2.LastFilePostfix = "@:\n  "
+		$2.IncludeDirectoryPaths = True
+		$1.inheritsSet = Mono
 	EndGlobalSection
 EndGlobal
