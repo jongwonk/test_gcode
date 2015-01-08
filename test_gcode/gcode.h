@@ -3,8 +3,13 @@
 #define _GCODE_H_
 
 
+typedef union _DataType
+{
+	double dVal;
+	int iVal;
+}ParamValue;
 
-int gcode_parse(char* filename);
+int gcode_parse(char* str);
 
 
 
