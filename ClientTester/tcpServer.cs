@@ -42,6 +42,7 @@ namespace ClientTester
 		private void run()
 		{
 			byte[] buf1 = ASCIIEncoding.ASCII.GetBytes ("G01 X1.001 Y0.002");
+			byte[] buf2 = ASCIIEncoding.ASCII.GetBytes ("G28 X Y Z");
 
 			if (ns == null)
 				return;
@@ -50,7 +51,12 @@ namespace ClientTester
 			{
 				ns.Write (buf1, 0, buf1.Length);
 				ns.Flush ();
-				Thread.Sleep(2000);
+				Thread.Sleep(1000);
+
+				ns.Write (buf2, 0, buf2.Length);
+				ns.Flush ();
+				Thread.Sleep(1000);
+
 			}
 
 		}
