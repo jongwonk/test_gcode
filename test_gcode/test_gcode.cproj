@@ -32,9 +32,16 @@
     <Compile Include="main.c" />
     <Compile Include="gcode.c" />
     <Compile Include="spi_abstract.c" />
+    <Compile Include="draw.c" />
+    <Compile Include="motion.c" />
+    <Compile Include="debug.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="gcode.h" />
     <None Include="spi_abstract.h" />
+    <None Include="draw.h" />
+    <None Include="motion.h" />
+    <None Include="debug.h" />
+    <None Include="genericDefine.h" />
   </ItemGroup>
 </Project>
