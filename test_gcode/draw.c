@@ -114,7 +114,7 @@ int reachEndPoint(int q, int x,int y, int x2, int y2, int ccw)
 				done = 1;
 		}
 	}
-	else if(q == 3)
+	else if(q == 2)
 	{
 		if(ccw == 0)
 		{
