@@ -571,6 +571,13 @@ void gcode_draw_arc3(int x1,int y1,int xb,int yb,int xe,int ye,int r,int unit,in
 
     do
     {
+
+   		if(quadrant == qe)
+		{
+			if(reachEndPoint(qe, x,y, xe,ye, ccw))
+				break;
+		}
+
 		if(ccw == 0) // CW
 		{
 			if(quadrant == 0)
@@ -657,9 +664,6 @@ void gcode_draw_arc3(int x1,int y1,int xb,int yb,int xe,int ye,int r,int unit,in
 
         if(quadrant == 0)
         {
-			if(qe == 0)
-				done = reachEndPoint(qe, x,y, xe,ye, ccw);
-			
 			if(ccw == 0 && y <= 0)
 				nextQuadrant(&quadrant,ccw);
 			else if(ccw != 0 && x <= 0)
@@ -667,9 +671,6 @@ void gcode_draw_arc3(int x1,int y1,int xb,int yb,int xe,int ye,int r,int unit,in
         }
         else if(quadrant == 1)
         {
-			if(qe == 1)
-				done = reachEndPoint(qe, x,y, xe,ye, ccw);
-				
 			if(ccw == 0 && x >= 0)
 				nextQuadrant(&quadrant,ccw);
 			else if(ccw != 0 && y <= 0)
@@ -677,9 +678,6 @@ void gcode_draw_arc3(int x1,int y1,int xb,int yb,int xe,int ye,int r,int unit,in
         }       
         else if (quadrant == 2)
         {
-			if(qe == 2)
-				done = reachEndPoint(qe, x,y, xe,ye, ccw);
-			
 			if(ccw == 0 && y >= 0)
 				nextQuadrant(&quadrant,ccw);
 			else if( ccw != 0 && x >= 0)
@@ -687,9 +685,6 @@ void gcode_draw_arc3(int x1,int y1,int xb,int yb,int xe,int ye,int r,int unit,in
         }
         else
         {
-			if(qe == 3)
-				done = reachEndPoint(qe, x,y, xe,ye, ccw);
-			
 			if(ccw == 0 && x <= 0 )
 				nextQuadrant(&quadrant,ccw);
 			else if(ccw != 0 && y >= 0)
