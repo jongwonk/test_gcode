@@ -19,11 +19,11 @@ int getQuadrant(int x1,int y1,int x2,int y2)
 	int dx = x2 - x1;
 	int dy = y2 - y1;
 	
-	if(dx >= 0 && dy >= 0)
+	if(dx > 0 && dy >= 0)
 		return 0;
-	else if(dx < 0 && dy >= 0)	
+	else if(dx <= 0 && dy > 0)	
 		return 1;
-	else if(dx < 0 && dy < 0)	
+	else if(dx < 0 && dy <= 0)	
 		return 2;
 	
 	return 3;
@@ -552,7 +552,7 @@ void gcode_draw_arc3(int x1,int y1,int xb,int yb,int xe,int ye,int r,int unit,in
 	
 	done = 0;
 	
-    r2 = r*r;
+    r2 = -r*r;
 
     moveToXY(xb,yb); // move to the start point
 	
@@ -618,9 +618,9 @@ void gcode_draw_arc3(int x1,int y1,int xb,int yb,int xe,int ye,int r,int unit,in
 			}
 		}
 		
-		ex = abs( tmp_x*tmp_x+y*y-r2);
-		ey = abs( x*x+tmp_y*tmp_y-r2);
-        ec = abs( tmp_x*tmp_x+tmp_y*tmp_y-r2);
+		ex = abs( tmp_x*tmp_x+y*y+r2);
+		ey = abs( x*x+tmp_y*tmp_y+r2);
+        ec = abs( tmp_x*tmp_x+tmp_y*tmp_y+r2);
 
         if(ex < ey)
         {
